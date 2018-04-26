@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ourchatbot</title>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Header-Blue.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Clean.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body style="height:679px;">
+    <div></div>
+    <div style="height:161px;">
+        <div class="header-blue" style="height:130px;">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="height:68px;">
+                <div class="container"><a class="navbar-brand" href="https://www.code.sydney/" target="_blank">Code.Sydney</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div
+                        class="collapse navbar-collapse" id="navcol-1"><span class="navbar-text"> </span><a class="btn btn-light ml-auto action-button" role="button" href="{{ url_for('home') }}">Go to Demo</a></div>
+        </div>
+        </nav>
+        <h1 class="text-center" style="color:rgb(132,162,193);font-size:45px;height:56px;">Chatbot Training</h1>
+        <br/>
+        <div>
+            <p class="text-center">An Implementation of <a href="https://github.com/gunthercox/ChatterBot">Chatterbot</a> and <a href="https://github.com/chamkank/flask-chatterbot">Flask-Chatterbot</a></p>
+        </div>
+    </div>
+    </div>
+    <form action = "{{ url_for('upload')}}" method = "POST" enctype = "multipart/form-data">
+        <div>
+            <input type = "file" name = "file" style="height:55px;margin:30px;padding:10px;background-color:#496077;color:rgb(255,255,255);width:303px;font-size:16px;">
+        </div>
+        <div>
+            <input type = "submit" style="height:55px;margin:30px;padding:10px;background-color:#364451;color:rgb(255,255,255);width:150px;font-size:16px;">
+        </div>
+        {% if msg %}
+        <div style="height:55px;margin:10px;padding:5px;width:303px;font-size:16px;">{{ msg }}</div>
+        {% endif %}
+    </form>
+</body>
+
+</html>
